@@ -9,7 +9,8 @@ def exibir_menu():
     print("2 - Consultar pessoa")
     print("3 - Alterar pessoa")
     print("4 - Listar pessoas")
-    print("5 - Sair")
+    print("5 - Analisar pessoa")
+    print("6 - Sair")
     return int(input("Escolha uma opcao: "))
  
 def cadastrar_pessoa(nomes, idades, emails):
@@ -61,6 +62,72 @@ def alterar_pessoa(nomes, idades, emails):
         print("Pessoa alterada!")
         exibir_pessoa(nomes, idades, emails, pos)
 
+def classificar_faixa_etaria(idade):
+    if idade < 12:
+        return "Crianca"
+    elif idade < 18:
+        return "Adolescente"
+    elif idade < 30:
+        return "Adulto jovem"
+    elif idade < 60:
+        return "Adulto"
+    else:
+        return "Idoso"
+
+def avaliar_email(email):
+    if email == "":
+        return "ausente"
+    elif "@" not in email:
+        return "invalido"
+    else:
+        return "utilizavel"
+
+def identificar_provedor(email):
+    if email.endswith("@gmail.com"):
+        return "Gmail"
+    elif email.endswith("@outlook.com"):
+        return "Outlook"
+    elif email.endswith("@hotmail.com"):
+        return "Hotmail"
+    elif email.endswith("@utfpr.edu.br"):
+        return "UTFPR"
+    else:
+        return "Outro"
+
+def definir_condicao_contato(idade, email):
+    if idade >= 18 and email != "":
+        return "Cadastro apto para contato"
+    elif idade >= 18 and email == "":
+        return "Maior de idade sem contato"
+    elif idade < 18 and email != "":
+        return "Menor de idade com contato"
+    else:
+        return "Menor de idade sem contato"
+
+def analisar_pessoa(nomes, idades, emails):
+    procurado = input("Nome para analisar: ")
+    pos = buscar_pessoa(nomes, procurado)
+
+    if pos == -1:
+        print("Pessoa nao encontrada")
+    else:
+        idade = idades[pos]
+        email = emails[pos]
+
+        faixa_etaria = classificar_faixa_etaria(idade)
+        print("Faixa etaria: " + faixa_etaria)
+
+        situacao_email = avaliar_email(email)
+        if situacao_email == "ausente":
+            print("Cadastro incompleto: sem e-mail")
+        elif situacao_email == "invalido":
+            print("E-mail invalido")
+        else:
+            provedor = identificar_provedor(email)
+            print("Provedor: " + provedor)
+
+        print(definir_condicao_contato(idade, email))
+
 def listar_pessoas(nomes, idades, emails):
     if len(nomes) == 0:
         print("Nenhuma pessoa cadastrada")
@@ -80,7 +147,7 @@ emails = []
 qtd = 0
 op = 0
  
-while op != 5:
+while op != 6:
     #print("=========================")
     #print(" CADASTRO DE PESSOAS")
     #print("=========================")
@@ -103,7 +170,9 @@ while op != 5:
     elif op == 4:
         listar_pessoas(nomes, idades, emails)
     elif op == 5:
-        print("Saindo...") 
+        analisar_pessoa(nomes, idades, emails)
+    elif op == 6:
+        print("Saindo...")
     else:
         print("Opcao invalida")
  
