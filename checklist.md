@@ -1,19 +1,19 @@
-# Checklist — Análise Estática com PyLint
+# Checklist - Analise Estatica com PyLint
 
-Disciplina: Gestão da Qualidade de Software
+Disciplina: Gestao da Qualidade de Software
 Projeto: gqs-cadastro-pessoas
 Branch: `pylint-analise`
 
-## Etapas da prática
+## Etapas da pratica
 
 - [x] Criar/utilizar a branch `pylint-analise` a partir de `main`
 - [x] Criar o arquivo `checklist.md` e registrar o commit
-- [x] Executar o PyLint pela primeira vez (baseline, antes das correções)
-- [x] Analisar os apontamentos (não buscar apenas a nota, entender a causa)
-- [x] Corrigir o código com base na análise
-- [x] Executar o PyLint novamente e comparar com a execução anterior
+- [x] Executar o PyLint pela primeira vez (baseline, antes das correcoes)
+- [x] Analisar os apontamentos (nao buscar apenas a nota, entender a causa)
+- [x] Corrigir o codigo com base na analise
+- [x] Executar o PyLint novamente e comparar com a execucao anterior
 - [x] Registrar os commits de cada etapa
-- [x] Conferir o histórico final com `git log --oneline`
+- [x] Conferir o historico final com `git log --oneline`
 
 ## Arquivo analisado
 
@@ -25,9 +25,9 @@ Branch: `pylint-analise`
 python -m pylint Cadastro.py
 ```
 
-## Observações
+## Observacoes
 
-A análise estática foi usada como apoio à melhoria do código (nomes de variáveis,
-docstrings, tratamento de exceções, comparações redundantes, uso de builtins como
-nome de variável, complexidade), e não apenas para perseguir uma nota alta da
+A analise estatica foi usada como apoio a melhoria do codigo (nomes de variaveis,
+docstrings, tratamento de excecoes, comparacoes redundantes, uso de builtins como
+nome de variavel, complexidade), e nao apenas para perseguir uma nota alta da
 ferramenta.
