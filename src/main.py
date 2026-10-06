@@ -1,6 +1,7 @@
-"""Sistema de Cadastro de Pessoas - versao 2.
+"""Interface de console do Cadastro de Pessoas.
 
-Novos requisitos: menu, consulta, alteracao e listagem.
+Este modulo conversa com o usuario (input e print) e coordena a aplicacao.
+As regras do cadastro ficam em CadastroPessoas; os dados, em Pessoa.
 """
 
 from cadastro import CadastroPessoas
@@ -150,8 +151,8 @@ def listar_pessoas(cadastro):
     print("Total: " + str(len(pessoas)))
 
 
-def main():
-    """Executa o loop principal do cadastro de pessoas."""
+def executar():
+    """Executa o menu principal da aplicacao."""
     cadastro = CadastroPessoas()
 
     opcao = 0
@@ -178,4 +179,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    executar()
