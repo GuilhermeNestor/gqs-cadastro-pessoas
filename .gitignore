@@ -1,5 +1,10 @@
+# Arquivos gerados pelo Python
 __pycache__/
 *.pyc
 .venv/
 .pytest_cache/
 
+# Evidências e relatórios das atividades da disciplina (não fazem parte do código)
+prints/
+*.pdf
+cadastro_inspecionado.py
