@@ -45,4 +45,6 @@ docker compose -f infra/compose.yaml ps
 
 O servi�o `principal` usa a porta local 3307 e o servi�o `replica` usa a 3308. A aplica�ao de console continua usando o reposit�rio em mem�ria quando esses servi�os estao ativos.
 
+Para configurar o canal de replicação e testar a persistência e a retomada após uma parada, siga o [laboratório da Aula 11](infra/LABORATORIO.md).
+
 Para enviar melhorias, consulte o [guia de contribui�ao](CONTRIBUTING.md).
