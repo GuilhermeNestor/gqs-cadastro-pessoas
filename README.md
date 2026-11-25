@@ -1,22 +1,48 @@
-# gqs-cadastro-pessoas
-Projeto evolutivo de cadastro de pessoas em Python, utilizado na disciplina Gestão da Qualidade de Software para práticas de modularização, qualidade de código e versionamento com Git.
+# Cadastro de Pessoas
 
-Projeto desenvolvido na disciplina **Gestão da Qualidade de Software**.
+Aplica�ao de console em Python desenvolvida na disciplina Gestao da Qualidade de Software. O menu permite cadastrar, consultar por nome, alterar e listar pessoas. A op�ao de an�lise mostra a faixa et�ria, avalia o e-mail e informa a condi�ao de contato.
 
-O sistema implementa um cadastro simples de pessoas em Python e será utilizado como artefato de estudo e evolução ao longo da disciplina.
+## Executar
 
-## Objetivo
+Na raiz do projeto, execute:
 
-Utilizar um mesmo projeto para aplicar, progressivamente, conceitos e práticas relacionados à qualidade de software.
+```console
+python src/main.py
+```
 
-## Tecnologias
+Para experimentar, escolha **1**, informe um nome fict�cio, a idade e um e-mail. Escolha **2** e digite o mesmo nome para consultar o registro. A op�ao **6** encerra a sessao. O reposit�rio padrao guarda os dados em mem�ria durante essa execu�ao.
 
-- Python
-- Git
-- GitHub
+## Ambiente de desenvolvimento no Windows
 
-## Execução
+No PowerShell, a partir da raiz do projeto:
 
-Execute o programa pelo terminal:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m pytest -v
+```
 
-python cadastro.py
+## Organiza�ao
+
+| Caminho | Responsabilidade |
+| --- | --- |
+| `src/main.py` | Menu e intera�ao pelo terminal |
+| `src/cadastro.py` | Opera�oes do cadastro |
+| `src/pessoa.py` | Dados de uma pessoa |
+| `src/repositorio_pessoas.py` | Contrato de armazenamento |
+| `src/repositorio_pessoas_memoria.py` | Armazenamento em mem�ria |
+| `tests/` | Testes automatizados de cadastro e busca |
+
+## Laborat�rio MySQL
+
+O arquivo `infra/compose.yaml` define dois servi�os de MySQL para as pr�ticas de banco de dados. Para inici�-los e consultar o estado dos cont�ineres, use:
+
+```console
+docker compose -f infra/compose.yaml up -d
+docker compose -f infra/compose.yaml ps
+```
+
+O servi�o `principal` usa a porta local 3307 e o servi�o `replica` usa a 3308. A aplica�ao de console continua usando o reposit�rio em mem�ria quando esses servi�os estao ativos.
+
+Para enviar melhorias, consulte o [guia de contribui�ao](CONTRIBUTING.md).
